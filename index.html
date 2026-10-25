@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فریاد | سفارش طراحی</title>
+<meta name="description" content="فریاد — سفارش طراحی برای مغازه‌ها و برندها. لوگو، پست اینستاگرام، بنر، منو، بسته‌بندی و تیزر. ساده سفارش بده، تحویل بگیر.">
+<style>
+@font-face{font-family:'AbarHigh';src:url('fonts/AbarHigh-Regular.woff') format('woff');font-weight:400}
+@font-face{font-family:'AbarHigh';src:url('fonts/AbarHigh-SemiBold.woff') format('woff');font-weight:600}
+@font-face{font-family:'AbarHigh';src:url('fonts/AbarHigh-Bold.woff') format('woff');font-weight:700}
+@font-face{font-family:'AbarHigh';src:url('fonts/AbarHigh-ExtraBold.woff') format('woff');font-weight:800}
+:root{
+  --bg:#ffffff; --ink:#0a0a0a; --muted:#6b6b6b; --line:#e8e8e8; --soft:#f6f6f6;
+  --crimson:#7a0e1e; --crimson-soft:#faf0f1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'AbarHigh',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+/* ---------- top bar ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:26px;letter-spacing:-.5px}
+.logo i{font-style:normal;color:var(--crimson)}
+nav{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background-color:var(--ink);color:#fff;border:1px solid var(--ink);padding:12px 26px;font-size:16px;font-weight:700;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s;border-radius:0;
+/* Iridescent foil: layered gradients — glare follows the pointer, foil shifts on scroll */
+background-image:
+radial-gradient(100px 50px at var(--px,50%) var(--py,50%), rgba(255,255,255,.25), transparent 70%),
+linear-gradient(var(--shine-angle,135deg), transparent 32%, rgba(255,255,255,var(--shine-opacity,.14)) 47%, rgba(255,255,255,.03) 54%, transparent 68%),
+conic-gradient(from var(--shine-angle,135deg) at var(--foil-shift,50%) var(--foil-y-shift,50%), rgba(255,0,128,.24), rgba(255,170,0,.22), rgba(0,255,170,.20), rgba(0,190,255,.24), rgba(150,0,255,.24), rgba(255,0,128,.24))}
+.btn:hover{background-color:var(--crimson);border-color:var(--crimson)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.small{padding:9px 18px;font-size:14px}
+.btn.block{width:100%}
+.btn:disabled{opacity:.45;cursor:default}
+.head .btn{padding:10px 20px;font-size:14px}
+/* ---------- hero ---------- */
+.hero{padding:96px 0 84px;border-bottom:1px solid var(--line)}
+.hero .kicker{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted);margin-bottom:24px}
+.hero .kicker::before{content:"";width:48px;height:3px;background:var(--crimson)}
+.hero h1{font-size:clamp(72px,14vw,168px);font-weight:800;line-height:1.05;letter-spacing:-2px}
+.hero h1 i{font-style:normal;color:var(--crimson)}
+.hero p.tag{font-size:clamp(22px,3.4vw,32px);font-weight:700;margin-top:20px}
+.hero p.sub{color:var(--muted);font-size:18px;max-width:560px;margin-top:12px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+/* ---------- sections ---------- */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:36px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.5px}
+.sec-head h2::after{content:"";display:block;width:48px;height:3px;background:var(--crimson);margin-top:14px}
+.sec-head p{color:var(--muted);margin-top:10px;max-width:600px}
+/* ---------- services ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:#fff;padding:32px 28px;display:flex;flex-direction:column;gap:10px;transition:background .15s}
+.card:hover{background:var(--soft)}
+.card .num{font-size:13px;color:var(--crimson);font-weight:700}
+.card h3{font-size:21px;font-weight:800}
+.card p{color:var(--muted);font-size:15px;line-height:1.8;flex:1}
+.card .pick{align-self:flex-start;background:none;border:none;border-bottom:1px solid var(--ink);font-size:14px;font-weight:700;cursor:pointer;padding:2px 0}
+.card .pick:hover{color:var(--crimson);border-color:var(--crimson)}
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.step{border-top:3px solid var(--ink);padding-top:20px}
+.step b{display:block;font-size:20px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15px}
+/* ---------- form ---------- */
+form{max-width:640px}
+.field{margin-bottom:20px}
+.field label{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
+.field label span{color:var(--muted);font-weight:400}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fff;padding:14px 16px;font-size:16px;color:var(--ink);outline:none;border-radius:0;transition:border-color .15s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink)}
+.field textarea{min-height:130px;resize:vertical}
+.field .err{display:none;color:var(--crimson);font-size:13px;margin-top:6px}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--crimson)}
+.field.invalid .err{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.success{display:none;border:1px solid var(--ink);padding:28px;margin-top:28px}
+.success.show{display:block}
+.success h3{font-size:22px;font-weight:800}
+.success h3 i{font-style:normal;color:var(--crimson)}
+.success .code{font-size:15px;color:var(--muted);margin:6px 0 16px}
+.success .code b{color:var(--ink)}
+.success p{font-size:15px;color:var(--muted)}
+.success .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+/* ---------- orders ---------- */
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center}
+.tools input{border:1px solid var(--line);padding:11px 14px;font-size:15px;min-width:220px;outline:none}
+.tools input:focus{border-color:var(--ink)}
+.chip{border:1px solid var(--line);background:#fff;padding:9px 16px;font-size:14px;cursor:pointer}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.crimson-on{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.stats{display:flex;gap:24px;color:var(--muted);font-size:14px;margin-bottom:24px;flex-wrap:wrap}
+.stats b{color:var(--ink)}
+.order{border:1px solid var(--line);padding:24px;margin-bottom:16px}
+.order .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.order .top h3{font-size:19px;font-weight:800}
+.order .top .code{color:var(--muted);font-size:14px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border:1px solid var(--line)}
+.badge.new{border-color:var(--crimson);color:var(--crimson);background:var(--crimson-soft)}
+.badge.review{border-color:#b8860b;color:#7a5c00;background:#fdf8ec}
+.badge.doing{border-color:var(--ink);color:var(--ink)}
+.badge.done{background:var(--ink);color:#fff;border-color:var(--ink)}
+.badge.cancel{color:var(--muted)}
+.order p{color:var(--muted);font-size:15px;margin-top:8px;white-space:pre-wrap}
+.order .meta{font-size:13px;color:var(--muted);margin-top:10px}
+.order .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.mini{border:1px solid var(--line);background:#fff;padding:8px 14px;font-size:13px;cursor:pointer}
+.mini:hover{border-color:var(--ink)}
+.mini.danger:hover{border-color:var(--crimson);color:var(--crimson)}
+.empty{text-align:center;color:var(--muted);padding:48px 0;border:1px dashed var(--line)}
+.backup{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+/* ---------- samples + footer ---------- */
+.samples{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.sample{background:#fff;padding:28px 24px}
+.sample b{display:block;font-size:18px}
+.sample span{color:var(--muted);font-size:14px}
+footer{padding:56px 0 64px}
+.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.foot .big{font-size:32px;font-weight:800}
+.foot .big i{font-style:normal;color:var(--crimson)}
+.foot p{color:var(--muted);font-size:15px}
+.foot a:hover{color:var(--crimson)}
+.copyright{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid var(--line);padding-top:24px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 24px;font-size:15px;z-index:99;display:none}
+.toast.show{display:block}
+@media(max-width:820px){
+  nav{display:none}
+  .grid,.steps,.samples{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .hero{padding:64px 0 56px}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <a class="logo" href="#">فریاد<i>.</i></a>
+    <nav>
+      <a href="#services">خدمات</a>
+      <a href="#how">روند کار</a>
+      <a href="#order">ثبت سفارش</a>
+      <a href="#track">پیگیری سفارش</a>
+      <a href="#samples">نمونه‌کارها</a>
+    </nav>
+    <a class="btn" href="#order">ثبت سفارش</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker">سفارش طراحی برای مغازه‌ها و برندها</div>
+      <h1>فریاد<i>.</i></h1>
+      <p class="tag">طراحی که شنیده می‌شه.</p>
+      <p class="sub">لوگو، پست اینستاگرام، بنر، منو، بسته‌بندی و تیزر — سفارشت رو همین‌جا ثبت کن، بقیه‌ش با من.</p>
+      <div class="cta">
+        <a class="btn" href="#order">ثبت سفارش</a>
+        <a class="btn ghost" href="#services">مشاهده خدمات</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>خدمات</h2>
+        <p>هر چیزی که یه برند برای دیده‌شدن لازم داره. روی هر خدمت بزن تا مستقیم با همون خدمت سفارش ثبت کنی.</p>
+      </div>
+      <div class="grid" id="serviceGrid"></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>روند کار</h2>
+        <p>سه قدم، بدون پیچیدگی.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><b>۱. سفارش رو ثبت کن</b><p>فرم رو پر کن و توضیح بده چی می‌خوای. کد پیگیری می‌گیری.</p></div>
+        <div class="step"><b>۲. بررسی و اعلام</b><p>سفارشت رو بررسی می‌کنم و هزینه و زمان تحویل رو اعلام می‌کنم.</p></div>
+        <div class="step"><b>۳. تحویل فایل نهایی</b><p>طرح نهایی رو با کیفیت کامل تحویل می‌گیری.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>ثبت سفارش</h2>
+        <p>فیلدهای ستاره‌دار لازمه. بقیه اختیاریه، ولی هرچی بیشتر بنویسی، طرح دقیق‌تر می‌شه.</p>
+      </div>
+      <form id="orderForm" novalidate>
+        <div class="field" id="f-name">
+          <label>نام شما *</label>
+          <input id="in-name" type="text" placeholder="نام و نام خانوادگی" autocomplete="name">
+          <div class="err">نام رو بنویس.</div>
+        </div>
+        <div class="field" id="f-brand">
+          <label>نام کسب‌وکار یا برند *</label>
+          <input id="in-brand" type="text" placeholder="مثلاً: کافه، فروشگاه، برند پوشاک">
+          <div class="err">نام کسب‌وکار رو بنویس.</div>
+        </div>
+        <div class="row2">
+          <div class="field" id="f-mobile">
+            <label>موبایل *</label>
+            <input id="in-mobile" type="tel" placeholder="09123456789" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right">
+            <div class="err">یه شماره موبایل معتبر با 09 شروع‌شونده بنویس.</div>
+          </div>
+          <div class="field">
+            <label>نوع خدمت *</label>
+            <select id="in-service"></select>
+          </div>
+        </div>
+        <div class="field" id="f-desc">
+          <label>توضیح پروژه *</label>
+          <textarea id="in-desc" placeholder="مثلاً: یه لوگوی ساده و مینیمال برای کافه می‌خوام، رنگ‌ها گرم باشن و حس صمیمی بده."></textarea>
+          <div class="err">چند خط درباره‌ی چیزی که می‌خوای بنویس.</div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>بودجه تقریبی <span>(اختیاری)</span></label>
+            <input id="in-budget" type="text" placeholder="مثلاً: حدود ۵ میلیون تومان">
+          </div>
+          <div class="field">
+            <label>تاریخ تحویل موردنظر <span>(اختیاری)</span></label>
+            <input id="in-deadline" type="date">
+          </div>
+        </div>
+        <button class="btn block" type="submit">ثبت سفارش</button>
+      </form>
+      <div class="success" id="successBox">
+        <h3>سفارشت ثبت شد<i>.</i></h3>
+        <div class="code">کد پیگیری: <b id="successCode"></b></div>
+        <p>کد رو نگه دار. خلاصه‌ی سفارش رو کپی کن و اگه خواستی برای پیگیری سریع‌تر، برام بفرست.</p>
+        <div class="actions">
+          <button class="btn small" type="button" id="copySuccess">کپی خلاصه سفارش</button>
+          <a class="btn ghost small" href="#track">مشاهده سفارش‌های من</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="track">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>پیگیری سفارش</h2>
+        <p>سفارش‌هایی که از همین دستگاه ثبت شدن، اینجا دیده می‌شن. وضعیت هر سفارش با بررسی من به‌روز می‌شه.</p>
+      </div>
+      <div class="tools">
+        <input id="searchInput" type="text" placeholder="جست‌وجو: نام، برند یا کد پیگیری">
+        <button class="chip on" data-filter="all">همه</button>
+        <button class="chip" data-filter="new">جدید</button>
+        <button class="chip" data-filter="review">در حال بررسی</button>
+        <button class="chip" data-filter="doing">در حال انجام</button>
+        <button class="chip" data-filter="done">تحویل‌شده</button>
+        <button class="chip" data-filter="cancel">لغوشده</button>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div id="orderList"></div>
+      <div class="backup">
+        <button class="mini" type="button" id="downloadBackup">دانلود پشتیبان (JSON)</button>
+        <label class="mini" style="cursor:pointer">بازگردانی پشتیبان<input type="file" id="restoreInput" accept="application/json" hidden></label>
+      </div>
+    </div>
+  </section>
+
+  <section id="samples">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>نمونه‌کارها</h2>
+        <p>چند تا از پروژه‌های قبلی. برای دیدن همه‌شون سر بزن به پورتفولیو.</p>
+      </div>
+      <div class="samples">
+        <div class="sample"><b>تامنیل یوتیوب</b><span>طراحی کاور ویدیو</span></div>
+        <div class="sample"><b>پیرانا فود</b><span>هویت بصری برند غذایی</span></div>
+        <div class="sample"><b>میروس</b><span>طراحی برند</span></div>
+        <div class="sample"><b>وزارت بهداشت</b><span>پروژه طراحی</span></div>
+      </div>
+      <p style="margin-top:20px"><a href="https://iarivn.github.io/portfolio/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);font-weight:700">مشاهده پورتفولیوی کامل ←</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="big">فریاد<i>.</i></div>
+        <p>طراحی که شنیده می‌شه.</p>
+      </div>
+      <div>
+        <p><b style="color:var(--ink)">تماس</b></p>
+        <p>موبایل: <a href="tel:+989912566164" dir="ltr">0991 256 6164</a></p>
+        <p>تلگرام و اینستاگرام: <a href="https://t.me/iarivn" target="_blank" rel="noopener" dir="ltr">@iarivn</a></p>
+      </div>
+    </div>
+    <div class="copyright">© ۱۴۰۵ فریاد — ساخته‌شده برای سفارش‌گیری طراحی</div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const SERVICES = [
+  {id:'logo', name:'لوگو و هویت بصری', desc:'لوگو، رنگ، فونت و هویت یکدست برای برندت.'},
+  {id:'social', name:'پست و استوری اینستاگرام', desc:'کاور، پست و استوری با هویت بصری خودت.'},
+  {id:'banner', name:'بنر و پوستر تبلیغاتی', desc:'بنر، پوستر و طرح‌های تبلیغاتی چاپی و دیجیتال.'},
+  {id:'menu', name:'منو و کاتالوگ', desc:'منوی کافه و رستوران، کاتالوگ محصول و ست اداری.'},
+  {id:'pack', name:'بسته‌بندی محصول', desc:'طراحی بسته‌بندی که توی قفسه دیده بشه.'},
+  {id:'motion', name:'تیزر و موشن کوتاه', desc:'تیزر و موشن کوتاه برای معرفی محصول و برند.'},
+  {id:'other', name:'سایر', desc:'یه چیز دیگه توی ذهنته؟ بنویسش.'},
+];
+const STATUS = {
+  new:    {label:'جدید', cls:'new', next:'review', nextLabel:'شروع بررسی'},
+  review: {label:'در حال بررسی', cls:'review', next:'doing', nextLabel:'شروع انجام'},
+  doing:  {label:'در حال انجام', cls:'doing', next:'done', nextLabel:'تحویل شد'},
+  done:   {label:'تحویل شد', cls:'done', next:null, nextLabel:null},
+  cancel: {label:'لغو شد', cls:'cancel', next:null, nextLabel:null},
+};
+const KEY = 'faryad-orders-v1';
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+function faDigits(s){ return String(s||'').replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)); }
+function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } }
+function save(list){ localStorage.setItem(KEY, JSON.stringify(list)); }
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+function summaryText(o){
+  const st = STATUS[o.status] ? STATUS[o.status].label : o.status;
+  return 'سفارش طراحی — فریاد\nکد پیگیری: ' + o.code + '\nنام: ' + o.name + '\nکسب‌وکار: ' + o.brand + '\nموبایل: ' + o.mobile + '\nخدمت: ' + o.serviceName + '\nتوضیح: ' + o.desc +
+    (o.budget ? '\nبودجه تقریبی: ' + o.budget : '') +
+    (o.deadline ? '\nتحویل موردنظر: ' + o.deadline : '') + '\nوضعیت: ' + st;
+}
+function copyText(text, okMsg){
+  const done = ()=>toast(okMsg || 'کپی شد.');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch(e){ toast('کپی نشد؛ متن رو دستی انتخاب کن.'); }
+  document.body.removeChild(ta);
+}
+
+/* ---------- services ---------- */
+function renderServices(){
+  $('#serviceGrid').innerHTML = SERVICES.map((s,i) =>
+    '<div class="card"><div class="num">0' + (i+1) + '</div><h3>' + s.name + '</h3><p>' + s.desc + '</p>' +
+    '<button class="pick" type="button" data-service="' + s.id + '">ثبت سفارش برای این خدمت ←</button></div>'
+  ).join('');
+  $('#in-service').innerHTML = SERVICES.map(s => '<option value="' + s.id + '">' + s.name + '</option>').join('');
+  $$('#serviceGrid .pick').forEach(b => b.addEventListener('click', ()=>{
+    $('#in-service').value = b.dataset.service;
+    document.getElementById('order').scrollIntoView({behavior:'smooth'});
+    $('#in-name').focus({preventScroll:true});
+  }));
+}
+
+/* ---------- orders ---------- */
+let filter = 'all';
+function renderOrders(){
+  const list = load();
+  const q = faDigits($('#searchInput').value.trim());
+  const counts = {all:list.length, new:0, review:0, doing:0, done:0, cancel:0};
+  list.forEach(o => { if (counts[o.status] !== undefined) counts[o.status]++; });
+  $('#stats').innerHTML =
+    'کل سفارش‌ها: <b>' + counts.all + '</b> &nbsp;·&nbsp; جدید: <b>' + counts.new + '</b> &nbsp;·&nbsp; در حال بررسی: <b>' + counts.review + '</b> &nbsp;·&nbsp; در حال انجام: <b>' + counts.doing + '</b> &nbsp;·&nbsp; تحویل‌شده: <b>' + counts.done + '</b>';
+  const shown = list.filter(o => {
+    if (filter !== 'all' && o.status !== filter) return false;
+    if (!q) return true;
+    return (o.name + ' ' + o.brand + ' ' + o.code + ' ' + o.serviceName).includes(q);
+  });
+  if (!shown.length){
+    $('#orderList').innerHTML = '<div class="empty">هنوز سفارشی اینجا نیست. اولین سفارش رو از فرم بالا ثبت کن.</div>';
+    return;
+  }
+  $('#orderList').innerHTML = shown.map(o => {
+    const st = STATUS[o.status] || STATUS.new;
+    const date = new Date(o.createdAt).toLocaleDateString('fa-IR');
+    return '<div class="order"><div class="top"><h3>' + esc(o.brand) + ' <span style="color:var(--muted);font-weight:400;font-size:15px">— ' + esc(o.serviceName) + '</span></h3>' +
+      '<span class="code">' + o.code + '</span></div>' +
+      '<div><span class="badge ' + st.cls + '">' + st.label + '</span></div>' +
+      '<p>' + esc(o.desc) + '</p>' +
+      '<div class="meta">' + esc(o.name) + ' · ' + esc(o.mobile) +
+      (o.budget ? ' · بودجه: ' + esc(o.budget) : '') +
+      (o.deadline ? ' · تحویل موردنظر: ' + esc(o.deadline) : '') + ' · ثبت: ' + date + '</div>' +
+      '<div class="acts">' +
+      (st.next ? '<button class="mini" type="button" data-act="next" data-id="' + o.id + '">' + st.nextLabel + '</button>' : '') +
+      (o.status !== 'cancel' && o.status !== 'done' ? '<button class="mini danger" type="button" data-act="cancel" data-id="' + o.id + '">لغو سفارش</button>' : '') +
+      '<button class="mini" type="button" data-act="copy" data-id="' + o.id + '">کپی خلاصه</button>' +
+      '<button class="mini danger" type="button" data-act="del" data-id="' + o.id + '">حذف</button>' +
+      '</div></div>';
+  }).join('');
+  $$('#orderList [data-act]').forEach(b => b.addEventListener('click', ()=>{
+    const list2 = load();
+    const o = list2.find(x => String(x.id) === b.dataset.id);
+    if (!o) return;
+    const act = b.dataset.act;
+    if (act === 'next') o.status = STATUS[o.status].next;
+    if (act === 'cancel' && !confirm('این سفارش لغو بشه؟')) return;
+    if (act === 'cancel') o.status = 'cancel';
+    if (act === 'copy'){ copyText(summaryText(o), 'خلاصه‌ی سفارش کپی شد.'); return; }
+    if (act === 'del'){
+      if (!confirm('این سفارش حذف بشه؟')) return;
+      save(list2.filter(x => String(x.id) !== b.dataset.id));
+      renderOrders(); toast('سفارش حذف شد.');
+      return;
+    }
+    save(list2); renderOrders();
+  }));
+}
+
+/* ---------- form ---------- */
+function setInvalid(id, bad){
+  const f = document.getElementById(id);
+  if (f) f.classList.toggle('invalid', bad);
+  return !bad;
+}
+$('#orderForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('#in-name').value.trim();
+  const brand = $('#in-brand').value.trim();
+  const mobile = faDigits($('#in-mobile').value.trim()).replace(/[\s-]/g,'');
+  const serviceId = $('#in-service').value;
+  const desc = $('#in-desc').value.trim();
+  const budget = $('#in-budget').value.trim();
+  const deadline = $('#in-deadline').value;
+  let ok = true;
+  ok = setInvalid('f-name', !name) && ok;
+  ok = setInvalid('f-brand', !brand) && ok;
+  ok = setInvalid('f-mobile', !/^09\d{9}$/.test(mobile)) && ok;
+  ok = setInvalid('f-desc', desc.length < 5) && ok;
+  if (!ok) return;
+  const serviceName = (SERVICES.find(s => s.id === serviceId) || {}).name || serviceId;
+  const code = 'FR-' + String(Date.now()).slice(-4) + Math.floor(Math.random()*10);
+  const order = { id: Date.now(), code, name, brand, mobile, serviceId, serviceName, desc, budget, deadline, status:'new', createdAt: new Date().toISOString() };
+  const list = load(); list.unshift(order); save(list);
+  $('#successCode').textContent = code;
+  $('#successBox').classList.add('show');
+  $('#copySuccess').onclick = ()=>copyText(summaryText(order), 'خلاصه‌ی سفارش کپی شد.');
+  e.target.reset();
+  renderOrders();
+  toast('سفارشت ثبت شد.');
+  document.getElementById('successBox').scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+/* ---------- filters / search / backup ---------- */
+$$('.chip').forEach(c => c.addEventListener('click', ()=>{
+  $$('.chip').forEach(x => x.classList.remove('on'));
+  c.classList.add('on'); filter = c.dataset.filter; renderOrders();
+}));
+$('#searchInput').addEventListener('input', renderOrders);
+$('#downloadBackup').addEventListener('click', ()=>{
+  const blob = new Blob([JSON.stringify(load(), null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'faryad-orders-backup.json'; a.click();
+  URL.revokeObjectURL(a.href); toast('پشتیبان دانلود شد.');
+});
+$('#restoreInput').addEventListener('change', e => {
+  const file = e.target.files[0]; if (!file) return;
+  const r = new FileReader();
+  r.onload = ()=>{
+    try {
+      const data = JSON.parse(r.result);
+      if (!Array.isArray(data)) throw 0;
+      save(data); renderOrders(); toast('پشتیبان برگردونده شد.');
+    } catch(err){ toast('فایل پشتیبان معتبر نیست.'); }
+  };
+  r.readAsText(file); e.target.value = '';
+});
+
+/* ---------- iridescent foil (pointer + scroll) ---------- */
+(function(){
+  const btns = Array.from(document.querySelectorAll('.btn:not(.ghost)'));
+  if (!btns.length) return;
+  let raf = null;
+  const pointer = {x:.5, y:.5};
+  function scrollProgress(){
+    const el = document.scrollingElement || document.documentElement;
+    const range = el.scrollHeight - window.innerHeight;
+    return range > 0 ? Math.min(Math.max(el.scrollTop / range, 0), 1) : 0;
+  }
+  function apply(){
+    raf = null;
+    const sp = scrollProgress();
+    const angle = 105 + sp * 80 + (pointer.x - .5) * 28;
+    const opacity = (0.10 + Math.abs(pointer.x - .5) * 0.20 + sp * 0.08).toFixed(3);
+    btns.forEach(b => {
+      b.style.setProperty('--shine-angle', angle.toFixed(1) + 'deg');
+      b.style.setProperty('--shine-opacity', opacity);
+      b.style.setProperty('--foil-shift', (50 + (sp - .5) * 30 + (pointer.x - .5) * 18).toFixed(1) + '%');
+      b.style.setProperty('--foil-y-shift', (50 + (sp - .5) * 20 + (pointer.y - .5) * 12).toFixed(1) + '%');
+    });
+  }
+  function schedule(){ if (raf === null) raf = requestAnimationFrame(apply); }
+  btns.forEach(b => {
+    b.addEventListener('pointermove', e => {
+      const r = b.getBoundingClientRect();
+      pointer.x = r.width > 0 ? Math.min(Math.max((e.clientX - r.left) / r.width, .08), .92) : .5;
+      pointer.y = r.height > 0 ? Math.min(Math.max((e.clientY - r.top) / r.height, .08), .92) : .5;
+      b.style.setProperty('--px', (pointer.x * 100).toFixed(1) + '%');
+      b.style.setProperty('--py', (pointer.y * 100).toFixed(1) + '%');
+      schedule();
+    });
+    b.addEventListener('pointerleave', ()=>{ b.style.setProperty('--px','50%'); b.style.setProperty('--py','50%'); });
+  });
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule, {passive:true});
+  schedule();
+})();
+
+renderServices();
+renderOrders();
+</script>
+</body>
+</html>
